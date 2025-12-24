@@ -193,11 +193,28 @@ def confidence_report(text, items):
             "label":label 
         }
 
+def final_report(text, items):
+    """
+    Returns the complete system output.
+    """
+    decision = basic_decision(text, items)
+    ans = confidence_report(text,items)
+    return {
+            "decision":decision ,
+            "confidence": ans
+        }
 
-text = "hello world"
-items = [1]
 
-print(confidence_report(text, items))
+# Main method
+def main():
+    text = "hello world sdkidin l hoindl"
+    items = [1,298, 3897,39080,00]
+
+    print("System Report")
+    print(final_report(text, items))
+
+if __name__ == "__main__":
+    main()
 
 
 

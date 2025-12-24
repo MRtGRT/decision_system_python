@@ -1,12 +1,13 @@
-# Decision System (Python)
+# Decision Analysis System (Python)
 
-This project is built step by step to learn Python deeply by creating
-a rule-based decision system.
+## Overview
+This project is a rule-based decision system built in Python.  
+It analyzes text and numeric inputs to produce a final decision along with a confidence score.
 
-## Goal
-- Practice clean Python logic
-- Build real engineering habits
-- Track daily progress using Git
+## Features
+- Cleans and analyzes text input
+- Evaluates numeric data
+- Produces decisions: ignore / review / accept
+- Assigns confidence scores and labels
+- Designed using reusable, composable functions
 
-## Status
-Day 1: Project setup and planning
