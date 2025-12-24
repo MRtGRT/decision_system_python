@@ -41,7 +41,7 @@ def clean_text(text):
         else:
             ans_list.append(clean)
     
-    return ans_list
+    return ans_list #list 
 
 def word_stats(words):
     """
@@ -70,18 +70,29 @@ def word_stats(words):
     # for i in freq.values():
     #     if i >=1:
     #         unique_count+=1
-    
-        
+       
     return {
             "total": total_count, 
             "unique": unique_count 
         }
 
-    
+def text_report(text):
+    """
+    Generates a word statistics report from raw text.
+    """
+    if not isinstance(text,str):
+        return {
+            "total": 0,
+            "unique": 0
+        }
+
+    cleaned_text = clean_text(text)
+    result = word_stats(cleaned_text)
+
+    return result
 
 
-    
-# words="hello"
-words=["hello", "world", "hello"]
-print(word_stats(words))
+
+text=123
+print(text_report(text))
 
