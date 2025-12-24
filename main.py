@@ -117,8 +117,8 @@ def number_stats(items):
             "positive": positive_count
         }
 
+# -------------------------------------------------------------
 # Decision making starts ->>>
-
 def basic_decision(text, items):
     """
     Makes a basic decision using text and number statistics.
@@ -134,7 +134,31 @@ def basic_decision(text, items):
     else:
         return "review"
 
-text="hi"
-items=[1]
-print(basic_decision(text, items))
+def system_report(text, items):
+
+    cleaned_text = clean_text(text)
+    text_stats= word_stats(cleaned_text)
+    nums_stats = number_stats(items)
+    decision = basic_decision(text,items)
+
+    return {
+  "text": {
+      "total_words": text_stats["total"],
+      "unique_words": text_stats["unique"]
+  },
+  "numbers": {
+      "total_numbers": nums_stats["total"],
+      "positive_numbers": nums_stats["positive"]
+  },
+  "decision": decision
+}
+
+
+
+
+text = "Hello world hello"
+items = [1, -2, 3]
+
+print(system_report(text, items))
+
 
