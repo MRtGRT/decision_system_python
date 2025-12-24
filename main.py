@@ -153,12 +153,23 @@ def system_report(text, items):
   "decision": decision
 }
 
+def decision_confidence(text, items):
 
+    cleaned_text = clean_text(text)
+    text_stats= word_stats(cleaned_text)
+    nums_stats = number_stats(items)
+    decision = basic_decision(text,items)
 
+    if decision=="ignore":
+        return 0
+    elif decision=="review":
+        return 50
+    else:
+        return 100
 
-text = "Hello world hello"
-items = [1, -2, 3]
+text = "hi"
+items = []
 
-print(system_report(text, items))
+print(decision_confidence(text, items))
 
 
