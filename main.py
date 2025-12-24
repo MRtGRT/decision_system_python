@@ -117,7 +117,24 @@ def number_stats(items):
             "positive": positive_count
         }
 
+# Decision making starts ->>>
 
-items=[1,2,2.89,90,90.221]
-print(number_stats(items))
+def basic_decision(text, items):
+    """
+    Makes a basic decision using text and number statistics.
+    """
+    cleaned_text = clean_text(text)
+    text_stats = word_stats(cleaned_text)
+    nums_stats = number_stats(items)
+
+    if text_stats["total"]==0 and nums_stats["total"]==0:
+        return "ignore"
+    elif text_stats["total"]>=3 and nums_stats["positive"]>=1:
+        return "accept"
+    else:
+        return "review"
+
+text="hi"
+items=[1]
+print(basic_decision(text, items))
 
