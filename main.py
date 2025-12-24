@@ -167,9 +167,37 @@ def decision_confidence(text, items):
     else:
         return 100
 
-text = "hi"
-items = []
+def confidence_label(score):
+# Convert the numeric confidence into a human-readable label.(give the name to confidence)
 
-print(decision_confidence(text, items))
+    # For non int input 
+    if not isinstance(score,int):
+        return "unknown"
+    
+    if score==0:
+        return "low"
+    elif score==50:
+        return "medium"
+    elif score==100:
+        return "high"
+    else:
+        return "unknown"
+
+def confidence_report(text, items):
+
+    score = decision_confidence(text,items)
+    label = confidence_label(score)
+
+    return {
+            "score":score ,
+            "label":label 
+        }
+
+
+text = "hello world"
+items = [1]
+
+print(confidence_report(text, items))
+
 
 
