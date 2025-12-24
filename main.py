@@ -43,12 +43,45 @@ def clean_text(text):
     
     return ans_list
 
+def word_stats(words):
+    """
+    Takes a list of words and returns basic statistics.
+    """
+
+    # Handling input other than list 
+    if not isinstance(words, list):
+        return {
+            "total":0, 
+            "unique": 0 
+        }
+
+    total_count=len(words)
+    unique_count = len(set(words)) #more pythonic
+    # freq={}
+
+    # # For finding occurence of each word
+    # for i in words:
+    #     if i in freq:
+    #         freq[i]+=1
+    #     else:
+    #         freq[i]=1
+
+    # # For finding no. of unique elements
+    # for i in freq.values():
+    #     if i >=1:
+    #         unique_count+=1
     
+        
+    return {
+            "total": total_count, 
+            "unique": unique_count 
+        }
+
     
-# text =123
-# items ="abc"
-# text ="Hi"
-# items =None
-text ="Python 3 is CALM."
-print(clean_text(text))
+
+
+    
+# words="hello"
+words=["hello", "world", "hello"]
+print(word_stats(words))
 
