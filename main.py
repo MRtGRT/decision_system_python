@@ -91,8 +91,33 @@ def text_report(text):
 
     return result
 
+def number_stats(items):
+    """
+    Takes a list of items and returns numeric statistics.
+    """
+
+    # For non list inputs 
+    if not isinstance(items, list):
+        return {
+                "total": 0,
+                "positive": 0
+            }
+    
+    total_count = 0
+    positive_count=0
+
+    for i in items:
+        if isinstance(i,int):
+            total_count+=1
+            if i>0:
+                positive_count+=1
+
+    return {
+            "total": total_count,
+            "positive": positive_count
+        }
 
 
-text=123
-print(text_report(text))
+items=[1,2,2.89,90,90.221]
+print(number_stats(items))
 
